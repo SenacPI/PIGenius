@@ -62,12 +62,18 @@ public class Main {
 
                 int numeroAleatorio = generateNumber();
 
+
+
                 // store randomNumber in the array
-                numbers[rodada] = numeroAleatorio;
+                numbers[rodada -1] = numeroAleatorio;
 
                 // foreach number in the array where the number is different of 0
                 System.out.println("Memorize a sequência de números: ");
                 for (int i = 0; i < rodada; i++) {
+
+                    Thread.sleep(1000);
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
 
                     int randomNumber = numbers[i];
 
@@ -83,37 +89,26 @@ public class Main {
                     Thread.sleep(1000);
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+
+                    System.out.println(BRANCO + "|1| |2| |3| |4|");
+
                 }
 
 
-                // after 1 second clean the screen
-                /**
-                Thread.sleep(1000);
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
-
-                 */
-
-                // System.out.println(Arrays.toString(numbers));
-
-                System.out.println("Digite o número da sequência: ");
-                int sla = sc.nextInt();
+                System.out.println("Digite a sequência, preferencialmente separada por espaços: ");
+                String sla = sc.nextLine();
 
 
+                // transform numeroAleatorio into a string
+                String numeroAleatorioString = Integer.toString(numeroAleatorio);
 
-                if (sla == numeroAleatorio) {
+                if (sla == numeroAleatorioString) {
                     System.out.println("Acertou!");
                 }
-
-
             }
             while (true);
         }
-
-
-
     }
-
 
     public static int generateNumber()
     {
