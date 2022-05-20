@@ -95,16 +95,25 @@ public class Main {
                 }
 
 
-                System.out.println("Digite a sequência, preferencialmente separada por espaços: ");
+                System.out.println("Digite a sequência, separada por espaços: ");
                 String sla = sc.nextLine();
 
+                // split the line by spaces
+                String[] numbersString = sla.split(" ");
 
-                // transform numeroAleatorio into a string
-                String numeroAleatorioString = Integer.toString(numeroAleatorio);
+                // foreach item in numbersString array, compare with the numbers array
+                // if the current number is different of the number in the array, the game is over
+                for (int i = 0; i < numbersString.length; i++) {
 
-                if (sla == numeroAleatorioString) {
-                    System.out.println("Acertou!");
+                    // if the current number is different of the number in the array, the game is over
+                    if(!numbersString[i].equals(String.valueOf(numbers[i])) && rodada > 1) {
+
+                        System.out.println("Game Over");
+                        exit(0);
+                    }
                 }
+
+
             }
             while (true);
         }
