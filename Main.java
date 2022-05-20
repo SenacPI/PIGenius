@@ -98,6 +98,10 @@ public class Main {
                 System.out.println("Digite a sequência, separada por espaços: ");
                 String sla = sc.nextLine();
 
+                // if the line contains commas, replace them with spaces
+                sla = sla.replace(",", " ");
+
+
                 // split the line by spaces
                 String[] numbersString = sla.split(" ");
 
