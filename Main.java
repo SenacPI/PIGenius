@@ -1,28 +1,53 @@
 
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-
 import static java.lang.System.exit;
 
-public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+public class Main {		
+	
+		public static final String VERMELHO = "\u001B[31m";
+		
+		public static final String VERDE = "\u001B[32m";
+		
+		public static final String AMARELO = "\u001B[33m";
+		
+		public static final String AZUL = "\u001B[34m";
+		
+		public static final String BRANCO = "\u001B[37m";
+        
+		public static final String GameOver = "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+             "███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n" +
+              "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼\n" +
+              "██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀\n" +
+              "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼\n" +
+              "███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄\n" +
+            "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+            "███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼\n" +
+            "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼\n" +
+            "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼\n" +
+             "███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄\n" +
+             "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n" +
+              "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼ \n"+
+              "GAME OVER";
+	
 
-        String VERMELHO = "\u001B[31m";
-        String VERDE = "\u001B[32m";
-        String AMARELO = "\u001B[33m";
-        String AZUL = "\u001B[34m";
-        String BRANCO = "\u001B[37m";
-
-        String numeroVermelho = VERMELHO + "1" + BRANCO;
-        String numeroVerde = VERDE + "2" + BRANCO;
-        String numeroAmarelo = AMARELO + "3" + BRANCO;
-        String numeroAzul = AZUL + "4" + BRANCO;
+    public static void main(String[] args) throws IOException, InterruptedException {     
 
         System.out.println(VERMELHO + "WELCOME" + VERDE + " TO" + AMARELO + " GEN" + AZUL + "IUS" + BRANCO);
 
-        System.out.println("\n Escolha uma opção: \n");
+        System.out.println("\n Escolha uma opcao: \n");
 
         System.out.println("1 - Jogar");
         System.out.println("2 - Sair");
@@ -43,17 +68,12 @@ public class Main {
 
             // start game
 
-            // cleans the screen
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-
-
+            
+            
             int rodada = 0;
+            boolean cont = true;
 
-            // create an array of numbers
-            int[] numbers = new int[300];
-
-
+            ArrayList<String> dataNumbers = new ArrayList<String>();
             do {
 
                 rodada++;
@@ -61,21 +81,17 @@ public class Main {
                 System.out.println("\n Rodada " + rodada);
 
                 int numeroAleatorio = generateNumber();
-
-
-
-                // store randomNumber in the array
-                numbers[rodada -1] = numeroAleatorio;
-
-                // foreach number in the array where the number is different of 0
-                System.out.println("Memorize a sequência de números: ");
-                for (int i = 0; i < rodada; i++) {
-
-                    Thread.sleep(1000);
+                
+                
+                dataNumbers.add(Integer.toString(numeroAleatorio));
+                
+                System.out.println("\nMemorize a sequencia de numeros: ");
+                
+                dataNumbers.forEach(i ->{                	
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
 
-                    int randomNumber = numbers[i];
+                    int randomNumber = Integer.parseInt(i);
 
                     System.out.printf(randomNumber == 1 ? VERMELHO + "|1|" : BRANCO + "|1|");
                     System.out.printf(" ");
@@ -84,71 +100,49 @@ public class Main {
                     System.out.printf(randomNumber == 3 ? AMARELO + "|3|" : BRANCO + "|3|");
                     System.out.printf(" ");
                     System.out.printf(randomNumber == 4 ? AZUL + "|4|" : BRANCO + "|4|");
-                    System.out.printf(BRANCO);
-
-                    Thread.sleep(1000);
+                    
+                    
+                    System.out.printf("\n");
+                    try {
+						Thread.sleep(700);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    System.out.printf(BRANCO + "|1| |2| |3| |4|");
+                    try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                    // cleans the screen
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                });
 
-                    System.out.println(BRANCO + "|1| |2| |3| |4|");
 
+                System.out.println("\nDigite a sequencia: ");
+                
+                String seq = sc.next();
+                
+                
+                String arrayToString = "";
+                
+                for(String number: dataNumbers) {
+                	arrayToString+=number;
                 }
-
-
-                System.out.println("Digite a sequência, separada por espaços: ");
-                String sla = sc.nextLine();
-
-                // if the line contains commas, replace them with spaces
-                sla = sla.replace(",", " ");
-
-
-                // split the line by spaces
-                String[] numbersString = sla.split(" ");
-
-                // foreach item in numbersString array, compare with the numbers array
-                // if the current number is different of the number in the array, the game is over
-                for (int i = 0; i < numbersString.length; i++) {
-
-                    // if the current number is different of the number in the array, the game is over
-                    if(!numbersString[i].equals(String.valueOf(numbers[i])) && rodada > 1) {
-
-                        // print game over in ASCII art
-
-                        String GameOver = "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n" +
-                                "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼\n" +
-                                "██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀\n" +
-                                "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼\n" +
-                                "███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼\n" +
-                                "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼\n" +
-                                "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼\n" +
-                                "██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼\n" +
-                                "███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n" +
-                                "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼ ";
-
-                        System.out.println(GameOver);
-                        System.out.println("Game Over!");
-                        exit(0);
-                    }
+                if(!seq.equals(arrayToString)) {
+                	cont =false;
+                	System.out.println(GameOver);
+                	System.out.println("A sequencia era: " + dataNumbers);
                 }
 
 
             }
-            while (true);
+            while (cont);
         }
     }
 
