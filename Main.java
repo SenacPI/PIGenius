@@ -136,8 +136,9 @@ public class Main {
                 }
                 if(!seq.equals(arrayToString)) {
                 	cont =false;
-                	System.out.println(GameOver);
-                	System.out.println("A sequencia era: " + dataNumbers);
+                	System.out.println("\n" +GameOver);
+                	System.out.println("\nA sequencia era: " + dataNumbers);
+                	System.out.println("\nVoce chegou a " + rodada + "ª rodada!");
                 }
 
 
